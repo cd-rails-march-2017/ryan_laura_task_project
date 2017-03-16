@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item: MyText
+  due: 2017-03-16
+  checkbox: false
+  user_id: 
+
+two:
+  item: MyText
+  due: 2017-03-16
+  checkbox: false
+  user_id: 

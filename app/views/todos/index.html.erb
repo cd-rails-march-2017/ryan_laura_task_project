@@ -1,0 +1,43 @@
+<h1>Welcome, <%= @user.name %></h1>
+
+<table>
+<thead>
+	<tr>
+		<th>Task</th>
+		<th>Due Date</th>
+		<th>Done?</th>
+		<th>Hide Task</th>
+	</tr>
+</thead>
+<tbody>
+  <% @tasks.each do |task| %>
+	<tr>
+		<td><%= task.item %></td>
+		<td><%= task.due %></td>
+		<td><input type="checkbox"></td>
+		<td><form action='todos/update/<%= task.id%>'><input type='submit' name='done' value='True'></form></td>
+	</tr>
+  <% end %>
+</tbody>
+</table>
+
+<% if session[:hide] %>
+
+<a href="/">Show All Tasks</a><br>
+
+<% else %>
+
+<a href="/todos/showhide">Hide Completed Tasks</a><br>
+
+<% end %>
+
+<h3>Create a New Task!</h3>
+
+<form action="/todos/create" method="POST">
+	<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+	<textarea name="item">What is your task?</textarea><br>
+	<br><input type="text"  name="duedate" placeholder="Due Date"><br>
+	<input type="submit" value="Create">
+</form>
+
+<a href="/users/logout">Logout</a>

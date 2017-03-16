@@ -1,0 +1,21 @@
+<h1>Welcome to the Registration Page!</h1>
+
+<% flash.each do |key, e|%>
+<% if flash[:errors] %>
+<h3><%= e %></h3>
+<% end %>
+<% end %>
+
+<form action="/users/create" method="POST">
+	<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+	<br>
+	<input type="text" name="user[name]" placeholder='Name'>
+	<br>
+	<input type="text" name="user[email]" placeholder='email'>
+	<br>
+	<input type="password" name="user[password]" placeholder='password'>
+	<br>
+	<input type="submit" value="Register">
+</form>
+
+<a href="/users/login">Aready have an account? Login!</a>

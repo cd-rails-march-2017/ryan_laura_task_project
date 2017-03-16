@@ -1,0 +1,14 @@
+<h1>Login to ToDO</h1>
+
+<% if flash[:notice] %>
+<h3><%= flash[:notice] %></h3>
+<% end %>
+
+<form action="/users/authenticate" method="post">
+	<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+	<label>Email</label><br>
+	<input type="text" name="email" placeholder="email address"><br>
+	<label>Password</label><br>
+	<input type="password" name="password" placeholder="password"><br>
+	<input type="submit" value="Login">
+</form>
